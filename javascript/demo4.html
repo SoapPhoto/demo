@@ -1,9 +1,8 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>下拉菜单</title>
+  <title></title>
   <style type="text/css">
   body,
   ul,
@@ -116,8 +115,7 @@
     for (var i = 0; i < as.length; i++) {
       as[i].num = i
       as[i].onmouseover = function() {
-        this.style.background = '#ccc'
-        index = as[i].num - 1;
+        this.style.background = '#ccc';
       }
       as[i].onmouseout = function() {
         this.style.background = '#fff'
@@ -146,11 +144,11 @@
   <div id="divselect">
     <cite>请选择分类</cite>
     <ul>
-      <li id="li"><a href="javascript:;" selectid="1">ASP开发</a></li>
-      <li><a href="javascript:;" selectid="2">.NET开发</a></li>
-      <li><a href="javascript:;" selectid="3">PHP开发</a></li>
-      <li><a href="javascript:;" selectid="4">Javascript开发</a></li>
-      <li><a href="javascript:;" selectid="5">Java特效</a></li>
+      <li id="li"><a href="javascript:;" value="1">1</a></li>
+      <li><a href="javascript:;" value="2">2</a></li>
+      <li><a href="javascript:;" value="3">3</a></li>
+      <li><a href="javascript:;" value="4">4</a></li>
+      <li><a href="javascript:;" value="5">5</a></li>
     </ul>
   </div>
 </body>
