@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实践题 - 选项卡</title>
+    <style type="text/css">
+    /* CSS样式制作 */
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    .block{ display: block; }
+    .hidden{ display: none; }
+    
+    #tab {
+        width: 300px;
+        margin: 10px auto;
+        padding: 10px;
+        background: #eee;
+    }
+    
+    #tab .tab-title {
+        height: 30px;
+        line-height: 30px;
+    }
+    
+    #tab .tab-title a {
+        float: left;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+    }
+    </style>
+    <script type="text/javascript">
+    window.onload = function() {
+      var tab = document.getElementById('tab');
+      var title = tab.getElementsByTagName('a');
+      var content = tab.getElementsByTagName('pre');
+      for (var i = 0; i <= title.length - 1; i++) {
+        title[i].index = i; // 对title进行编号
+        title[i].onclick = function() { //注册一个点击事件，对对应编号的a标签响应
+            for (var j = title.length - 1; j >= 0; j--) { // 再遍历一遍，先将所有元素隐藏先
+              content[j].className = "hidden";
+            }
+        content[this.index].className = "block"; //然后设置需要的元素显示
+        }
+      }
+  }
+
+    </script>
+</head>
+
+<body>
+    <!-- HTML页面布局 -->
+    <div id="tab">
+        <div class="tab-title">
+
+                <a class="title" href="javasript:;">房产</a>
+                <a class="title" href="javasript:;">家居</a>
+                <a class="title" href="javasript:;">二手房</a>
+
+        </div>
+        <div class="tab-content">
+
+                    <pre class="content"> 
+275万购昌平邻铁三居 总价20万买一居
+200万内购五环三居 140万安家东三环
+北京首现零首付楼盘 53万购东5环50平
+京楼盘直降5000 中信府 公园楼王现房
+    </pre>
+
+                    <pre class="content hidden">
+40平出租屋大改造 美少女的混搭小窝
+经典清新简欧爱家 90平老房焕发新生
+新中式的酷色温情 66平撞色活泼家居
+瓷砖就像选好老婆 卫生间烟道的设计
+     </pre>
+
+                    <pre class="content hidden">
+通州豪华3居260万 二环稀缺2居250w甩
+西3环通透2居290万 130万2居限量抢购
+黄城根小学学区仅260万 121平70万抛!
+独家别墅280万 苏州桥2居优惠价248万
+    </pre>
+
+        </div>
+    </div>
+</body>
+
+</html>
