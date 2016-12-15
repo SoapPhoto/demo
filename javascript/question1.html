@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+<h1>假设我从生下来开始走，第一天走一步，第二天走的要比平均步数多一步，平均步数是历史步数的每日平均数向上取整，问我第 <input id="text" type="" name="">岁的那天走了多少步？</h1>
+<button onclick="getStep()">确定</button>
+<ul id="content"></ul>
+<script type="text/javascript">
+
+function getStep() {
+  var year = document.getElementById("text").value;
+  console.log(year);
+  var step = new Array();
+  step[1] = 1;
+  var sum = new Array();
+  sum[1] = 1;
+  var average = new Array();
+  average[1] = 1;
+  var answer = "";
+
+  for(var day = 1; day <= 365*year; day++ ){
+    step[day+1] = average[day] +1;
+    sum[day+1] = sum[day] + step[day+1];
+    average[day+1] = Math.ceil(sum[day+1] / (day+1)); //平均步数向上取整
+  }
+    answer += "<p>"+year+"岁的时候，是第"+day+"天，那天走了"+step[day]+"步，总步数是"+sum[day]+"，历史平均步数是"+average[day]+"</p>";
+  var content = document.getElementById("content");
+  content.innerHTML = answer;
+}
+
+</script>
+</body>
+</html>
