@@ -16,8 +16,8 @@
         text-align: center;
       }
   </style>
-<script type="text/javascript" src="../dist/echarts.min.js"></script>
-<script type="text/javascript" src="../dist/china.js"></script>
+<script type="text/javascript" src="static/echarts.min.js"></script>
+<script type="text/javascript" src="static/china.js"></script>
 </head>
 <body>
 <h1>统计百度前端学院的群成员的城市分布TOP20</h1>
@@ -66,6 +66,7 @@ var by = function(name){
         }
     }
 }
+
 cityObj.sort(by("value"));
 // console.log(cityObj);
 // console.log(JSON.stringify(cityObj));
