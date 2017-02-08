@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>鼠标滚动控制图片大小</title>
+  <style type="text/css">
+    *{
+      margin:0;
+      padding: 0;
+    }
+    html, body{
+      height: 100%;
+      width: 100%;
+    }
+    #img-container{
+      position: relative;
+      height: 100%;
+    }
+    img{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div id="img-container">
+    <img id="img" src="http://ww4.sinaimg.cn/large/0060lm7Tgy1fcje31jnuzj30e80e8wfu.jpg">
+  </div>
+
+<script type="text/javascript">
+  var obj = document.getElementById("img");
+
+  var scrollFunc = function (e) {
+    var h = document.getElementById('img').height;
+    var w = document.getElementById('img').width;
+    if(e.wheelDelta > 0){
+      obj.style.height = h *1.1 + 'px';
+      obj.style.width = w *1.1 + 'px';
+      console.log(obj);
+      console.log(w);
+      console.log(h);
+    }else{
+      obj.style.height = h *0.9 + 'px';
+      obj.style.width = w *0.9 + 'px';
+      console.log(obj);
+      console.log(w);
+      console.log(h);
+    }
+  }
+
+  if (document.addEventListener) {
+        document.addEventListener('DOMMouseScroll', scrollFunc, false);
+    }
+
+  window.onmousewheel=document.onmousewheel = scrollFunc;
+</script>
+</body>
+</html>
