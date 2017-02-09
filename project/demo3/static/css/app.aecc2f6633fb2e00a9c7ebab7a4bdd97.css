@@ -90,13 +90,15 @@ table {border-collapse: collapse; border-spacing: 0;}
 }
 #qqchat #content .msgPanel .msgText p{ font-size: 16px;
 }
-#qqchat #content .msgSend .msgAvatar{float: right;
+#qqchat #content .msgPanel .msgMe{ background-color: #cdd7e2;
 }
-#qqchat #content .msgSend .msgText{float: right;
+#qqchat #content .msgYou .msgAvatar{float: right;
 }
-#qqchat #content .msgRecv .msgAvatar{float: left;
+#qqchat #content .msgYou .msgText{float: right;
 }
-#qqchat #content .msgRecv .msgText{float: left;
+#qqchat #content .msgMe .msgAvatar{float: left;
+}
+#qqchat #content .msgMe .msgText{float: left;
 }
 #qqchat .textArea{position: absolute; bottom: 0; height: 170px; width: 100%; border-top: 1px solid #b7c8de;
 }
@@ -166,4 +168,4 @@ a[data-v-188a39bc] {
 
 
 
-/*# sourceMappingURL=app.d27101f3853515fd487f72e67a65b2ce.css.map*/
+/*# sourceMappingURL=app.aecc2f6633fb2e00a9c7ebab7a4bdd97.css.map*/
