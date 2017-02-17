@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>日常的浮动字</title>
+  <style type="text/css">
+    #app{
+      position: absolute;
+      left: 40%;
+      animation: shake 5s infinite ease-in-out;
+    }
+    
+    #app p{
+      line-height: 20px;
+    }
+
+    #app .ch{
+      font-size: 200px;
+      font-family: '宋体'
+    }
+
+    #app .en{
+      position: absolute;
+      font-size: 30px;
+      font-weight: 800;
+      left: 180px;
+      top: 280px;
+    }
+
+
+    @keyframes shake{
+      10%{
+        transform: translate3d(5px, 20px,0);
+        -webkit-transform: translate3d(5px, 20px,0);
+        }
+      20%{
+        transform: translate3d(-4px, 6px,0);
+        -webkit-transform: translate3d(-4px, 6px,0);
+        }
+      30%{
+        transform: translate3d(10px, -10px, 0);
+        -webkit-transform: translate3d(10px, -10px, 0);
+        }
+      40%{
+        transform: translate3d(-6px, 3px,0);
+        -webkit-transform: translate3d(-6px, 3px,0);
+        }
+      50%{
+        transform: translate3d(5px, -5px,0);
+        -webkit-transform: translate3d(5px, -5px,0);
+        }
+      60%{
+        transform: translate3d(-3px, 4px, 0);
+        -webkit-transform: translate3d(-3px, 4px, 0);
+        }
+      70%{
+        transform: translate3d(2px, 5px, 0);
+        -webkit-transform: translate3d(2px, 5px, 0);
+        }
+      80%{
+        transform: translate3d(-3px, 6px, 0);
+        -webkit-transform: translate3d(-3px, 6px, 0);
+        }
+      90%{
+        transform: translate3d(2px, 8px,0);
+        -webkit-transform: translate3d(2px, 8px,0);
+        }
+      0% {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <p class="ch">日</p>
+  <p class="ch">常</p>
+  <p class="en">nichijou</p>
+</div>
+</body>
+</html>
