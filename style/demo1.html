@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>各种多边形</title>
+  <style type="text/css">
+    body{
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #app{
+      position: relative;
+      margin: 150px auto;
+      width: 700px;
+    }
+
+    /*左侧手柄*/
+    #app .left-hand{
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #app .left-hand .circle-panel{
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background-color: #333;
+      border: 5px solid #000;
+    }
+    #app .left-hand .circle-panel .btn-panel{
+      position: absolute;
+      top: 30px;
+      left: 90px;
+      width: 70px;
+      height: 70px;
+      background-color: #111;
+      border-top: 60px solid #111;
+      border-bottom: 60px solid #111;
+      border-left: 40px;
+      border-radius: 10px;
+    }
+    #app .left-hand .circle-panel .btn-panel:before{
+      position: absolute;
+      left: -60px;
+      content: '';
+      width: 190px;
+      height: 70px;
+      border-radius: 10px;
+      background-color: #111;
+    }
+
+
+    #app .left-hand .circle-panel .btn-panel .direction-btn{
+      position: absolute;
+      top: -47px;
+      left: 13px;
+      width: 40px;
+      height: 40px;
+      border-top: 60px solid #272727;
+      border-bottom: 60px solid #272727;
+      background-color: #272727;
+      border-radius: 5px;
+    }
+
+    #app .left-hand .circle-panel .btn-panel .direction-btn:before{
+      position: absolute;
+      left: -60px;
+      content: '';
+      width: 160px;
+      height: 40px;
+      background-color: #272727;
+      border-radius: 5px;
+    }
+
+    #app .left-hand .circle-panel .btn-panel .direction-shadow{
+      position: absolute;
+      top: -44px;
+      left: 16px;
+      width: 40px;
+      height: 40px;
+      border-top: 60px solid #666;
+      border-bottom: 60px solid #666;
+      background-color: #666;
+      border-radius: 5px;
+    }
+
+    #app .left-hand .circle-panel .btn-panel .direction-shadow:before{
+      position: absolute;
+      left: -60px;
+      content: '';
+      width: 160px;
+      height: 40px;
+      background-color: #666;
+      border-radius: 5px;
+    }
+
+    #app .left-hand .circle-panel .btn-panel .direction-btn .triangle-top{
+      position: absolute;
+      top: -50px;
+      left: 10px;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid #555;
+    }
+
+    #app .left-hand .circle-panel .btn-panel .direction-btn .triangle-right{
+      position: absolute;
+      top: 10px;
+      left: 80px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid #555;
+    }
+
+    #app .left-hand .circle-panel .btn-panel .direction-btn .triangle-bottom{
+      position: absolute;
+      top: 80px;
+      left: 10px;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #555;
+    }
+
+    #app .left-hand .circle-panel .btn-panel .direction-btn .triangle-left{
+      position: absolute;
+      top: 10px;
+      left: -50px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid #555;
+    }
+
+
+    #app .left-hand .left-handle{ 
+      position: absolute;
+      width: 160px;
+      height: 200px;
+      top: 125px;
+      left: -61px;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-top: 300px solid #262626;
+      transform:rotate(14deg);
+    }
+
+    #app .left-hand .left-handle:after{ /*椭圆*/
+      content: '';
+      position: absolute;
+      top: -55px;
+      width: 160px;
+      height: 100px;
+      -webkit-border-radius: 160px / 100px; 
+      background-color: #262626;
+    }
+
+    #app .left-hand .rocker-panel{
+      position: absolute;
+      top: 200px;
+      left: 150px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #333;
+      border: 3px solid #000;
+    }
+
+    #app .left-hand .rocker-panel .rocker{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 5px solid #000;
+      background-color: #272727;
+    }
+
+    /*右侧手柄*/
+    #app .right-hand{
+      position: absolute;
+      top: 0;
+      left: 450px;
+    }
+
+    #app .right-hand .circle-panel{
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background-color: #333;
+      border: 5px solid #000;
+    }
+
+    #app .right-hand .circle-panel .btn-panel{
+      position: absolute;
+      top: 30px;
+      left: 90px;
+      width: 70px;
+      height: 70px;
+      background-color: #111;
+      border-top: 60px solid #111;
+      border-bottom: 60px solid #111;
+      border-left: 40px;
+      border-radius: 10px;
+    }
+    #app .right-hand .circle-panel .btn-panel:before{
+      position: absolute;
+      left: -60px;
+      content: '';
+      width: 190px;
+      height: 70px;
+      border-radius: 10px;
+      background-color: #111;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle{
+      width: 40px;
+      height: 40px;
+      background-color: #272727;
+      border-radius: 50%;
+      box-shadow: 1px 2px 0 #666;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-top{
+      position: absolute;
+      top: -50px;
+      left: 15px;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-top span{
+      position: absolute;
+      top: 2px;
+      left: 4px;
+      border-left: 16px solid transparent;
+      border-right: 16px solid transparent;
+      border-bottom: 27px solid #64c7d8;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-top span:before{
+      position: absolute;
+      content: '';
+      left: -12px;
+      top: 3px;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 22px solid #272727;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-right span{
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: #c396b1;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-right span:before{
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      content: '';
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #272727;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-bottom span{
+      position: absolute;
+      top: 19px;
+      left: 2px;
+      width: 35px;
+      height: 3px;
+      background-color: #64c7d8;
+      transform: rotate(45deg);
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-bottom span:before{
+      position: absolute;
+      top: -17px;
+      left: 16px;
+      content: '';
+      width: 3px;
+      height: 35px;
+      background-color: #64c7d8;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-left span{
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      width: 27px;
+      height: 27px;
+      background-color: #c396b1;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-left span:before{
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      content: '';
+      width: 21px;
+      height: 21px;
+      background-color: #272727;
+    }
+
+
+    #app .right-hand .circle-panel .btn-panel .circle-right{
+      position: absolute;
+      top: 15px;
+      left: 80px;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-bottom{
+      position: absolute;
+      top: 80px;
+      left: 15px;
+    }
+
+    #app .right-hand .circle-panel .btn-panel .circle-left{
+      position: absolute;
+      top: 15px;
+      left: -50px;
+    }
+
+    #app .right-hand .right-handle{ 
+      position: absolute;
+      width: 160px;
+      height: 200px;
+      top: 125px;
+      left: 61px;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-top: 300px solid #262626;
+      transform:rotate(-14deg);
+    }
+
+    #app .right-hand .right-handle:after{ /*椭圆*/
+      content: '';
+      position: absolute;
+      top: -55px;
+      width: 160px;
+      height: 100px;
+      -webkit-border-radius: 160px / 100px; 
+      background-color: #262626;
+    }
+
+    #app .right-hand .rocker-panel{
+      position: absolute;
+      top: 200px;
+      left: -20px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #333;
+      border: 3px solid #000;
+    }
+
+    #app .right-hand .rocker-panel .rocker{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 5px solid #000;
+      background-color: #272727;
+    }
+
+
+    /*中间仪表盘*/
+    #app .center-panel{
+      position: absolute;
+      top: 15px;
+      left: 170px;
+      width: 350px;
+      height: 250px;
+      background-color: #262626;
+      border: 15px solid #3f3f3f;
+      box-shadow: 2px 2px 2px #000;
+    }
+
+    #app .center-panel .title{
+      position: absolute;
+      top: 30px;
+      left: 110px;
+      color: #000;
+      font-size: 22px;
+    }
+
+    #app .center-panel .title:before{
+      position: absolute;
+      content: 'GUABOX';
+      top: -3px;
+      left: -3px;
+      color: #92a5b6;
+    }
+
+    #app .center-panel .btn-panel{
+      position: absolute;
+      top: 150px;
+      left: 100px;
+    }
+
+    #app .center-panel .btn-panel .btn-start{
+      position: absolute;
+      width: 35px;
+      height: 20px;
+      border-radius: 5px;
+      background-color: #555;
+      box-shadow: 2px 3px 0 #111;
+    }
+
+    #app .center-panel .btn-panel .btn-start:after{
+      position: absolute;
+      top: -25px;
+      left: -3px;
+      content: 'START';
+      color: #92a5b6;
+      font-size: 12px;
+    }
+
+    #app .center-panel .btn-panel .btn-select{
+      position: absolute;
+      left: 100px;
+      width: 35px;
+      height: 20px;
+      border-radius: 5px;
+      background-color: #555;
+      box-shadow: 2px 3px 0 #111;
+    }
+
+    #app .center-panel .btn-panel .btn-select:after{
+      position: absolute;
+      top: -25px;
+      left: -6px;
+      content: 'SELECT';
+      color: #92a5b6;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="center-panel">
+    <div class="title">GUABOX</div>
+    <div class="btn-panel">
+      <div class="btn-start"></div>
+      <div class="btn-select"></div>
+    </div>
+  </div>
+  <div class="left-hand">
+    <div class="left-handle"></div>
+    <div class="circle-panel">
+      <div class="btn-panel">
+        <div class="direction-shadow"></div>
+        <div class="direction-btn">
+          <div class="triangle-top"></div>
+          <div class="triangle-right"></div>
+          <div class="triangle-bottom"></div>
+          <div class="triangle-left"></div>
+        </div>
+      </div>
+    </div>
+    <div class="rocker-panel">
+      <div class="rocker"></div>
+    </div>
+  </div>
+  <div class="right-hand">
+    <div class="right-handle"></div>
+    <div class="circle-panel">
+      <div class="btn-panel">
+        <div class="circle circle-top">
+          <span></span>
+        </div>
+        <div class="circle circle-right">
+          <span></span>
+        </div>
+        <div class="circle circle-bottom">
+          <span></span>
+        </div>
+        <div class="circle circle-left">
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="rocker-panel">
+      <div class="rocker"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
