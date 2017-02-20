@@ -37,15 +37,16 @@
   </div>
   <script type="text/javascript">
   var step = 1;
-  var r = Math.random() * 50;
+  var r = 50;
   window.setInterval(function  ()  {
     if(step == 360) {
       step = 1;
     }
+    console.log(r);
     document.getElementById("app").style.left = 500 + r * Math.sin(step) +'px';
     document.getElementById("app").style.top = 10 + r * Math.cos(step) +'px'; 
     step += 0.05;
-  }, 20);
+  }, 25);
   </script>
 </body>
 </html>
