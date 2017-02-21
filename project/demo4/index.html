@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>发光字</title>
+  <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: #000;
+    }
+
+    #app{
+      width: 80%;
+      margin: 50px auto;
+    }
+
+    #app textarea{
+      width: 100%;
+      resize: none;
+    }
+    #app p{
+      font-size: 100px;
+      font-weight: lighter;
+      color: #fff;
+      transition: all 0.3s;
+      text-shadow: 0 0 5px #fff,
+                   0 0 10px #fff,
+                   0 0 15px #fff,
+                   0 0 20px #FF1177,
+                   0 0 35px #FF1177,
+                   0 0 40px #FF1177,
+                   0 0 50px #FF1177,
+                   0 0 75px #FF1177;
+    }
+    #canvas{
+      width: 300px;
+      height: 150px;
+      cursor: crosshair;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <canvas id="canvas" title="点击取色" v-on:click="getColor(event)"></canvas>
+  <textarea v-model="message" placeholder="输入点啥"></textarea>
+  <p id="goal">{{message}}</p>
+</div>
+
+<script type="text/javascript" src="vue.min.js"></script>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data: {
+      message: 'sdf 速度',
+    }
+  })
+
+
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+
+  function draw() {
+    var grd=ctx.createLinearGradient(0,0,300,0);
+    grd.addColorStop("0","magenta");
+    grd.addColorStop("0.2","blue");
+    grd.addColorStop("0.4","green");
+    grd.addColorStop("0.7","yellow");
+    grd.addColorStop("0.9","red");
+    ctx.fillStyle = grd;
+    ctx.fillRect(0,0,300,100);
+  }
+
+  function getColor(event) {
+    var event = event;
+    var obj = document.getElementById("canvas");
+    var x = event.pageX - obj.offsetLeft;
+    var y = event.pageY - obj.offsetTop;
+    var imgData=ctx.getImageData(x,y,1,1);
+    // console.log(imgData);
+    var red=imgData.data[0];
+    var green=imgData.data[1];
+    var blue=imgData.data[2];
+    var alpha=imgData.data[3];
+
+    var color = 'rgb('+red+','+green+','+blue+')';
+    // console.log(rgb);
+
+    var con = '0 0 5px #fff,'+
+              '0 0 10px #fff,'+
+              '0 0 15px #fff,'+
+              '0 0 20px '+color+
+              ',0 0 35px '+color+
+              ',0 0 40px '+color+
+              ',0 0 50px '+color+
+              ',0 0 75px '+color;
+    // console.log(con);
+
+    var goal = document.getElementById("goal");
+    goal.style.textShadow = con;
+  }
+
+
+
+  window.onload = function () {
+    draw()
+  }
+
+</script>
+</body>
+</html>
