@@ -79,3 +79,11 @@ body{
 }
 
 
+.list .item .doing{
+  color: #eee;
+  text-decoration: line-through;
+}
+
+.list .item .doing::after{
+  content: '（未完成）'
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>鼠标横向滚动</title>
+  <style type="text/css">
+  html{background:#fff;color:#000}blockquote,body,button,code,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul{margin:0;padding:0}input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}th{text-align:inherit}a img,fieldset,img{border:0}iframe{display:block}abbr,acronym{border:0;font-variant:normal}del{text-decoration:line-through}address,caption,cite,code,dfn,em,th,var{font-weight:500;font-style:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-weight:500;font-size:100%}q:after,q:before{content:''}sup{vertical-align:text-top}sub{vertical-align:text-bottom}a,ins{text-decoration:none}a img{border:none}
+    html,body{
+      height: 100%;
+    }
+    #main{
+      height: 100%;
+      width: 300%;
+      overflow-y: scroll;
+      display: flex;
+    }
+    #main .page{
+      float: left;
+      height: 100%;
+      width: 100%;
+    }
+    #main .page1{
+      background: #ccc;
+    }
+    #main .page2{
+      background-color: #000;
+    }
+    #main .page3{
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+<div id="main">
+  <div class="page page1">
+    <button id="btn">点击</button>
+  </div>
+  <div class="page page2"></div>
+  <div class="page page3"></div>
+</div>
+<script type="text/javascript">
+  // 模拟鼠标事件
+  function mouseClick() {
+    var btn = document.querySelector("#btn");
+    var event = document.createEvent("MouseEvents");
+    event.initMouseEvent("click",true,true,document.defaultView,0,0,0,0,0,false,false,false,false,0,null);
+    btn.dispatchEvent(event);
+    btn.onclick = function () {
+      console.log("hello");
+    }
+  }
+  document.addEventListener('keydown', mouseClick, false);
+
+
+  function scrollSync() {
+    
+    var textbox = document.getElementById('main');
+    
+
+    // event.initKeyboardEvent("keydown",true,false,document.defaultView,"ShiftLeft",1,"Shift",1);
+    // event.initKeyboardEvent("keydown",true,false,document.defaultView,"b",0,"Shift",0);
+
+  }
+
+
+  document.addEventListener('DOMMouseScroll', scrollSync, false);
+  window.onmousewheel = document.onmousewheel = scrollSync;
+  
+</script>
+</body
+></html>
