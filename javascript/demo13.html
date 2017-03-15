@@ -23,6 +23,7 @@
     var newItem = document.createElement("LI");
     var key = String.fromCharCode(event.keyCode);
     newItem.innerHTML = "键名："+event.code+"，键值："+event.keyCode;
+    // console.log("键名："+event.code+"，键值："+event.keyCode);
     dis.appendChild(newItem, dis.childNodes[0]);
   }
   document.addEventListener('keydown', displayYouKey, false);
