@@ -1,0 +1,116 @@
+.container{ width: 800px; }
+
+#head { height: 280px; width: 100%; background: #3ac19f;  }
+
+#head .intro {
+  margin: 0 auto;
+  padding: 50px 0;
+  color: #fff;
+/*  transition: all 0.5s;
+  -webkit-animation: nav-down 0.5s;
+  animation: nav-down 0.5s;*/
+}
+
+#head .intro .avatar {
+  height: 120px;
+  width: 120px;
+  border-radius: 100%;
+  transition: all 0.6s;
+  float: left;
+  margin-right: 40px;
+  margin-bottom: 40px;
+}
+#head .intro:hover img {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+#head .intro h1{
+  font-size: 35px;
+  font-weight: normal;
+  color: #fff;
+  padding: 18px 0 18px 0;
+  display: inline-block;
+}
+
+#head .intro p{
+    font-size: 1.2em;
+    margin-left: 165px;
+}
+
+#head .nav{
+    height: 70px;
+}
+
+#head .nav ul{
+    height: 60px;
+    line-height: 60px;
+}
+
+#head .nav ul li{
+    float: left;
+    width: 20%;
+}
+
+#head .nav ul li a{
+    color: #fff;
+    font-size: 1.3em;
+    padding: 5px 30px;
+    text-decoration: none;
+}
+
+#content .line {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px #c9c9c9 dashed;
+}
+
+#content .title {
+    display: block;
+    font-size: 20px;
+    padding: 10px 15px;
+}
+
+#content .item {
+    display: inline-block;
+    transition: all .2s;
+    text-align: left;
+    padding: 10px 15px;
+    height: 100px;
+    width: 220px;
+    color: #000;
+    text-decoration: none;
+}
+
+#content .item:hover {
+    background: #c1ffef;
+}
+
+#content .item .name {
+    display: block;
+    font-size: 1.4em;
+}
+
+#content .item .desc {
+    display: block;
+    height: 40px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    color: #aaa;
+    font-size: 1em;
+}
+
+#content .item .label{
+    display: block;
+    height: 25px;
+    color: #aaa;
+    overflow: hidden;
+}
+
+#content .item .label span{
+    color: #fff;
+    background: #3ac19f;
+    margin-right: 5px;
+    padding: 1px 3px;
+    border-radius: 2px;
+}
+

@@ -1,0 +1,544 @@
+body{
+  height: 100%;
+}
+
+.onpost{
+  position: relative;
+}
+
+#nav{
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color:rgba(255,255,255,0.1);
+}
+
+#nav .nav-list li{
+  float: left;
+}
+
+#nav .nav-list li.active{
+  background-color:rgba(0,0,0,0.6);
+}
+
+#nav .nav-list .animate-init{
+    position: relative;
+    top: -10px;
+    opacity: 0;
+}
+
+#nav li a{
+  display: block;
+  font-size: 1.4em;
+  padding: 0 1.5em;
+  line-height: 3em;
+  color: #fff;
+  text-decoration: none;
+}
+
+#nav a:hover {
+  transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  /*-webkit-animation: links 0.1s infinite;*/
+}
+
+#index .about-post{
+  position: fixed;
+  margin:100px 10%;
+  padding: 20px;
+  color: #fff;
+}
+
+#index .about-post p{
+  font-size: 1.5em;
+}
+
+#index .about-post a{
+  color: #fff;
+  text-decoration: underline;
+}
+
+#about .about-me{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 350px;
+  height: 270px;
+  background-color:rgba(0,0,0,0.3);
+  padding: 20px;
+  color: #fff;
+}
+
+#about .about-me header{
+  font-size: 2em;
+  margin: 0 0 10px;
+}
+
+#about .about-me .profile{
+  float: left;
+}
+
+#about .about-me .profile img{
+  height: 125px;
+  width: 125px;
+  padding: 0 5px;
+  border-radius: 100%;
+  transition: all 0.6s;
+  -webkit-transition:all 0.6s;
+}
+
+#about .about-me:hover img{
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+#about .about-me .hp{
+  margin-top: 10px;
+}
+
+#about .about-me .hp p{
+  float: left;
+}
+
+#about .about-me .hp #hp-box{
+  float: left;
+  width: 60%;
+  height: 5px;
+  border-radius: 5px;
+  margin:5px 5px 0 5px;
+  background: #fff;
+}
+
+#about .about-me .hp .hp-state{
+  width: 0%;
+  height: 100%;
+  border-radius: 5px;
+  background: #ef4657;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.hp-state-change{
+  animation: state 0.5s;
+}
+
+@keyframes state {
+  0% {
+    width: 0;
+  }
+
+  90%{
+    width: 100%;
+  }
+  
+  100% {
+    width: 0;
+  }
+}
+
+#about .about-me .hp span{
+  font-size: 1.2em;
+  line-height: 1px;
+  transition: 0.6s;
+}
+
+#about .about-me .info{
+  float: left;
+  margin-left: 30px;
+}
+
+#about .about-me .info-name h1{
+  display: inline-block;
+}
+
+#about .about-me .info-name p{
+  float: right;
+  font-size: 1.5em;
+  line-height: 40px;
+}
+
+#about .about-me .info-desc p{
+  font-size: 1.2em;
+}
+
+#about .about-me .info .icon-xin{
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 20px;
+  animation: heartbeat 2s infinite;
+}
+
+#about .about-me .info .iconfont:hover{
+  color: #ef4657;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.3);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  15% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  55% {
+    transform: scale(1.3);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  65% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#about .about-me .social{
+  display: flex;
+  float: left;
+  margin: 10px 60px 0;
+  -webkit-transition: all 120ms cubic-bezier(0.25, 0.25, 0, 1);
+  transition: all 120ms cubic-bezier(0.25, 0.25, 0, 1);
+}
+
+#about .about-me .social .social-media {
+  margin: 0 10px;
+  display: inline-block;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transition: all 120ms cubic-bezier(0.25, 0.25, 0, 1);
+  transition: all 120ms cubic-bezier(0.25, 0.25, 0, 1);
+}
+#about .about-me .social .social-media:nth-child(1) {
+  -webkit-transition-delay: 0;
+  transition-delay: 0;
+}
+#about .about-me .social .social-media:nth-child(2) {
+  -webkit-transition-delay: 30ms;
+  transition-delay: 30ms;
+}
+#about .about-me .social .social-media:nth-child(2) {
+  -webkit-transition-delay: 60ms;
+  transition-delay: 60ms;
+}
+#about .about-me .social .social-media:nth-child(3) {
+  -webkit-transition-delay: 90ms;
+  transition-delay: 90ms;
+}
+
+#about .about-me .social .social-media:nth-child(4) {
+  -webkit-transition-delay: 120ms;
+  transition-delay: 120ms;
+}
+#about .about-me .social .social-media:nth-child(5) {
+  -webkit-transition-delay: 150ms;
+  transition-delay: 150ms;
+}
+#about .about-me .social .social-media:nth-child(6) {
+  -webkit-transition-delay: 180ms;
+  transition-delay: 180ms;
+}
+
+#about .about-me:hover .social-media {
+  opacity: 1;
+  -webkit-transform: scale(2) rotate(360deg);
+  transform: scale(2) rotate(360deg);
+  will-change: transform, opacity;
+}
+
+#friend{
+
+}
+
+#friend ul{
+  margin-top: 100px;
+}
+
+#friend ul li{
+  float: left;
+  width: 22%;
+  padding: 2% 1.5%;
+}
+
+#friend ul li:hover{
+  background: rgba(0,0,0,.4);
+}
+
+#friend ul li img{
+  width: 40%;
+  border-radius: 50%;
+  float: left;
+  margin-right: 5px;
+}
+
+#friend ul li h1{
+  color: #fff;
+  font-size: 3em;
+}
+
+#friend ul li h2{
+  color: #fff;
+  font-size: 1.5em;
+}
+
+
+#index, #about, #friend, #next, #submit, #post{
+  display: none;
+}
+
+#post .comments{
+  height: 100%;
+}
+
+#post .item{
+  margin-top: 50px;
+}
+
+.onindex #index{
+  display: block;
+}
+
+/*.onindex #index .about-post{
+  -webkit-animation: 0.5s about-post-in;
+  animation: 0.5s about-post-in
+}*/
+
+.onindex #index .about-post .animate-init{
+    position: relative;
+    top: -5px;
+    opacity: 0;
+}
+
+.onabout #about{
+  display: block;
+}
+
+.onabout #about .about-me{
+  -webkit-animation: 0.3s about-me-in;
+  animation: 0.3s about-me-in
+}
+
+@-webkit-keyframes about-post-in {
+    0%,
+    100% {
+        -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        /*animation-timing-function: cubic-bezier(.33, -.55, .03, 1.55)*/
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: rotate(-20deg) translate3d(-3em, -20em, 0);
+        /*transform: rotate(-20deg) translate3d(-4em, 0, 0)*/
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: rotate(0);
+        /*transform: rotate(0)*/
+    }
+}
+
+@-webkit-keyframes about-me-in {
+    0%,
+    100% {
+        -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        /*animation-timing-function: cubic-bezier(.33, -.55, .03, 1.55)*/
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: rotate(-20deg) translate3d(3em, 20em, 0);
+        /*transform: rotate(-20deg) translate3d(-4em, 0, 0)*/
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: rotate(0);
+        /*transform: rotate(0)*/
+    }
+}
+
+.onfriend #friend, .onnext #next, .onsubmit #submit, .onpost #post{
+  display: block;
+}
+
+#bg .notice, #bg .success{
+  position: fixed;
+  opacity: 0;
+  width: 200px;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin:auto;
+  color: #fff;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 5px;
+  padding: 10px;
+}
+#bg p{
+  font-size: 1.2em;
+}
+
+.notice-in{
+  animation: notice-in 2s;
+  -webkit-animation: notice-in 2s;
+}
+
+@keyframes notice-in {
+    0% {
+      transform: translate3d(0, -5em, 0);
+      opacity: 0;
+    }
+    10% {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+
+    85% {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(0, -5em, 0);
+      opacity: 0;
+    }
+}
+
+@-webkit-keyframes notice-in {
+    0% {
+      -webkit-transform: translate3d(0, -5em, 0);
+      opacity: 0;
+    }
+    15% {
+      -webkit-transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+    85% {
+      -webkit-transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translate3d(0, -5em, 0);
+      opacity: 0;
+    }
+}
+
+#bg #video{
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin:0;
+  padding:0;
+  min-width: 100%;
+}
+
+#bg .background{
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+}
+
+
+/*#bg .line-scale{
+  position: fixed;
+  top: 46%;
+  left: 46%;
+  z-index: -2;
+}
+
+@-webkit-keyframes line-scale {
+  0% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1); }
+
+  50% {
+    -webkit-transform: scaley(0.4);
+            transform: scaley(0.4); }
+
+  100% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1); } }
+@keyframes line-scale {
+  0% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1); }
+
+  50% {
+    -webkit-transform: scaley(0.4);
+            transform: scaley(0.4); }
+
+  100% {
+    -webkit-transform: scaley(1);
+            transform: scaley(1); } }
+
+.line-scale > div:nth-child(1) {
+  background-color: #00FF80;
+  -webkit-animation: line-scale 1s 0.1s infinite cubic-bezier(.2, .68, .18, 1.08);
+          animation: line-scale 1s 0.1s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.line-scale > div:nth-child(2) {
+  background-color: #9966CC;
+  -webkit-animation: line-scale 1s 0.2s infinite cubic-bezier(.2, .68, .18, 1.08);
+          animation: line-scale 1s 0.2s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.line-scale > div:nth-child(3) {
+  background-color: #C7FFEC;
+  -webkit-animation: line-scale 1s 0.3s infinite cubic-bezier(.2, .68, .18, 1.08);
+          animation: line-scale 1s 0.3s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.line-scale > div:nth-child(4) {
+  background-color: #FF7073;
+  -webkit-animation: line-scale 1s 0.4s infinite cubic-bezier(.2, .68, .18, 1.08);
+          animation: line-scale 1s 0.4s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.line-scale > div:nth-child(5) {
+  background-color: #FDFC7F;
+  -webkit-animation: line-scale 1s 0.5s infinite cubic-bezier(.2, .68, .18, 1.08);
+          animation: line-scale 1s 0.5s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.line-scale > div {
+  background-color: #eee;
+  width: 4px;
+  height: 35px;
+  border-radius: 2px;
+  margin: 2px;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  display: inline-block; }
+*/
+
+@media (max-width: 768px) {
+  #nav{
+    overflow: hidden;
+  }
+  #nav li a{
+    font-size: 1em;
+    padding: 0 1em;
+  }
+
+  #nav .right{
+    display: none;
+  }
+
+  #index .about-post{
+    margin: 40px 10%;
+  }
+
+  #index .about-post p{
+    font-size: 1.2em;
+  }
+
+  #friend ul li{
+    width: 100%;
+  }
+}

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+html,body {height: 100%;width: 100%;}
+body,blockquote,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {margin: 0;padding: 0;}
+body,button,input,select,textarea {font: 14px/1.5 'Lato','Segoe UI','Microsoft JhengHei','Microsoft YaHei',sans-serif;}
+address,cite,dfn,em,i,var{font-style: normal;}
+input{outline: none;}
+::selection {background: rgba(0, 0, 0, .25);color: #000;}
+div,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary {display: block;}
+ul {list-style: none;}
+fieldset,img {border:none;}
+table {border-collapse: collapse; border-spacing: 0;}
+
+:focus { outline: -webkit-focus-ring-color auto 0px;}
+
+.container {display: block;margin-left: auto;margin-right: auto;}
+.container:before,
+.container:after {content: " ";display: table;}
+.container:after {clear: both;}
+
+.left {float: left !important;display: inline;}
+.right {float: right !important;display: inline;}
+.center {margin-left: auto;margin-right: auto;display: block;}
+
+.clearfix:before, .clearfix:after {content: " ";display: table;}
+.clearfix:after {clear: both;}
+.clear:after {clear: both;display: block;content: " ";height: 0;}
+.clear {zoom: 1;}
+
+/*使用前请定义盒子元素的高度和高度margin，html标签中需写明 .row .col .col- 的内容*/
+.row{ width: 100%; margin: 10px auto; text-align: center;}
+.row:before, .row:after{ display: block; clear: both; content: '';}
+.row .col:last-child{ margin-right: 0 !important;}
+[class*='col-']{float: left; overflow: hidden; margin-right: 20px;}
+.col-1{width: calc( (100% + 20px) / 12 - 20px);}
+.col-2{width: calc( ((100% + 20px) / 12 ) * 2 - 20px);}
+.col-3{width: calc( ((100% + 20px) / 12) * 3 - 20px);}
+.col-4{width: calc( ((100% + 20px) / 12) * 4 - 20px);}
+.col-5{width: calc( ((100% + 20px) / 12) * 5 - 20px);}
+.col-6{width: calc( ((100% + 20px) / 12) * 6 - 20px);}
+.col-7{width: calc( ((100% + 20px) / 12) * 7 - 20px);}
+.col-8{width: calc( ((100% + 20px) / 12) * 8 - 20px);}
+.col-9{width: calc( ((100% + 20px) / 12) * 9 - 20px);}
+.col-10{width: calc( ((100% + 20px) / 12) * 10 - 20px);}
+.col-11{width: calc( ((100% + 20px) / 12) * 11 - 20px);}
+.col-12{width: 100%;}

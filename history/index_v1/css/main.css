@@ -1,0 +1,151 @@
+.content{
+    position: fixed;
+    display: table-cell;
+    z-index: 9999;
+    text-align: center;
+    width: 500px;
+    height: 300px;
+    background-color: rgba(0,0,0,0.5);
+    margin: 0 auto;
+}
+
+.content .head{
+    position: relative;
+    height: 150px;
+}
+
+.content .head img{
+    position: absolute;
+    top: -50%;
+    left: calc(100% - 100%/2 - 150px/2 );
+    z-index: 999999;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.content .like-view{
+    display: inline-block;
+    vertical-align: middle;
+    margin: -10% 0 0;
+    color: #fff;
+    font-size: 2em;
+    font-weight: lighter;
+    font-family: "Microsoft YaHei";
+}
+
+.content .panel{
+    display: table-cell;
+}
+
+.content span{
+    font-size: 1.2em;
+    font-family: "Microsoft YaHei";
+}
+
+.content .btn a{
+    color: #fff;
+    font-size: 1.2em;
+    font-family: "Microsoft YaHei";
+}
+
+.content .btn {
+    position:absolute;
+    z-index:150;
+    cursor: pointer;
+    width:150px;
+    height:70px;
+    border:2px solid #FFF;
+    border-radius: 90px;
+    text-align:center;
+    line-height:70px;
+    top:calc(100% - 100%/5 - 70px/2);
+    color:#FFF;
+    transition:all 0.3s linear;
+}
+
+.content .btn:hover {
+    z-index:250;
+    position:absolute;
+    width:150px;
+    height:70px;
+    border:2px solid rgba(0,0,0,0);
+    border-radius: 5px;
+    text-align:center;
+    line-height:70px;
+    top:calc(100% - 100%/5 - 70px/2);
+    background:rgba(255,255,255,0.8);
+    color:#000;
+}
+
+.content .left{
+    left:15%;
+}
+
+.content .right{
+    right:15%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .content{
+      width: 70%;
+      height: 400px;
+  }
+
+  .content .like-view{
+    margin: 0;
+    font-size: 2em;
+  }
+
+  .content .left{
+      left:20%;
+      border-radius: 90px;
+  }
+
+  .content .right{
+      right:20%;
+      border-radius: 90px;
+  }
+
+  .content span{
+    font-size: 1.2em;
+  }
+
+  .content a{
+    font-size: 1.2em;
+  }
+
+}
+
+@media (min-width: 100px) and (max-width: 515px) {
+    .content{
+        width: 70%;
+    }
+
+    .content .head img{
+      width: 100px;
+      top: -30%;
+      left: calc(100% - 100%/2 - 100px/2 );
+    }
+
+    .content .btn span{
+      font-size: 1em;
+    }
+
+    .content .like-view{
+ 
+      font-size: 1.6em;
+    }
+
+    .content .btn{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .content .btn:hover{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+}

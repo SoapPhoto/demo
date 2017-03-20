@@ -1,0 +1,128 @@
+@charset "UTF-8";
+html,body {
+    height: 100%;
+    width: 100%;
+}
+
+body,blockquote,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {
+    margin: 0;
+    padding: 0;
+}
+
+body,button,input,select,textarea {
+    font: 12px/1.5 arial,'Microsoft YaHei',\5b8b\4f53,sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+}
+
+address,cite,dfn,em,var,i{
+ font-style: normal!important;
+}
+
+::selection {
+    background: rgba(0, 0, 0, .25);
+    color: #000;
+}
+
+div,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary {
+    display: block;
+}
+
+a,a:hover,a:link,a:visited {
+    text-decoration: none;
+}
+
+ul,ol {
+    list-style: none;
+}
+
+fieldset,img {
+    border:none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+#content,#footer,#header,#page {
+    margin-left: auto;
+    margin-right: auto
+}
+
+.container {
+    max-width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container:before,
+.container:after {
+    content: " ";
+    display: table
+}
+
+.container:after {
+    clear: both
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.left {
+    float: left !important;
+    display: inline;
+}
+
+.right {
+    float: right !important;
+    display: inline;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clear:after {
+    clear: both;
+    display: block;
+    content: " ";
+    height: 0;
+}
+
+.clear {
+    zoom: 1;
+}
+
+.hide {
+    display:none;
+}
+.block {
+    display:block;
+}
+
