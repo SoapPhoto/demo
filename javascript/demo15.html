@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>滚动监听特效</title>
+  <style type="text/css">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      height: 100%;
+      width: 100%;
+    }
+    .container{
+      height: 100%;
+      width: 20%;
+      margin: 0 auto;
+    }
+    #main{
+      height: 100%;
+      width: 100%;
+    }
+    #main .page{
+      width: 100%;
+      height: 100%;
+    }
+
+    #main .page h1{
+      font-size: 55px;
+    }
+
+    #main .page p{
+      font-size: 20px;
+    }
+
+    #main .box{
+      width: 300px;
+      padding-top: 100%;
+    }
+
+    #box1,#box2,#box3,#box4{
+      opacity: 0;
+    }
+
+    .leftin{
+      opacity: 1!important;
+      transition: all 1s;
+      animation: leftin 1s;
+    }
+
+    .rightin{
+      opacity: 1!important;
+      transition: all 1s;
+      animation: rightin 1s;
+    }
+
+    @keyframes leftin {
+        0%  {
+            opacity: 0;
+            transform: scale(1) translateX(-200px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateX(0);
+        }
+    }
+
+    @keyframes rightin {
+        0%  {
+            opacity: 0;
+            transform: scale(1) translateX(200px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateX(0);
+        }
+    }
+  </style>
+</head>
+<body>
+<div id="main">
+  <div class="page">
+    <div class="container">
+      <div class="box leftin" id="box1">
+        <h1>page1</h1>
+        <p>这里是page1</p>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="container">
+      <div class="box" id="box2">
+        <h1>page2</h1>
+        <p>这里是page2</p>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="container">
+      <div class="box" id="box3">
+        <h1>page3</h1>
+        <p>这里是page3</p>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <div class="container">
+      <div class="box" id="box4">
+        <h1>page4</h1>
+        <p>这里是page4</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    // changeDivHeight()
+  }
+
+  window.onscroll = function () {
+    scrollTo("box2", "rightin")
+    scrollTo("box3", "leftin")
+    scrollTo("box4", "rightin")
+  }
+
+  // 获取浏览器高度并赋值
+  /*function changeDivHeight(){               
+      var h = document.documentElement.clientHeight;
+      var o = document.querySelectorAll(".page");
+      console.log(o);
+      for(var i=0, len = o.length; i<len; i++){
+        o[i].style.height = h + 'px';
+      }
+  }*/
+
+  function hasClass(obj, cls) {  
+      return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));  
+  }  
+
+  function scrollTo(id, cls) {
+    var h = document.documentElement.clientHeight;
+    var o = document.getElementById(id);
+    var oTop = o.offsetTop - h/1.5; // 元素距顶端的距离
+    var oLeft = o.offsetLeft; // 元素距左侧的距离
+    var nowHeight = document.body.scrollTop; // 滚动条距顶端的距离
+    if(nowHeight > oTop){
+      if (!this.hasClass(o, cls)) o.className += " " + cls;  
+    }
+  }
+</script>
+</body>
+</html>
