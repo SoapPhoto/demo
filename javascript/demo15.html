@@ -141,7 +141,7 @@
   function scrollTo(id, cls) {
     var h = document.documentElement.clientHeight;
     var o = document.getElementById(id);
-    var oTop = o.offsetTop - h/1.5; // 元素距顶端的距离
+    var oTop = o.offsetTop - h/2; // 元素距顶端的距离
     var oLeft = o.offsetLeft; // 元素距左侧的距离
     var nowHeight = document.body.scrollTop; // 滚动条距顶端的距离
     if(nowHeight > oTop){
