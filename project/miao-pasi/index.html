@@ -3,50 +3,99 @@
 <head>
   <meta charset="utf-8">
   <title>喵帕斯</title>
-  <style type="text/css">
-    *{
-      margin: 0;
-      padding: 0;
-    }
-    html,body{
-      height: 100%;
-      width: 100%;
-    }
-
-    #app{
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: #000;
-      z-index: -999;
-    }
-
-    #app img{
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      height: 100%;
-      z-index: -999;
-    }
-
-    #app .blue{
-      width: 100%;
-      height: 100%;
-      background: rgba(23, 102, 232, .4);
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div id="app">
-  <div class="blue"></div>
-  <img src="bg.png">
+  <div id="player">
+    <div id="info">
+      <div class="title"></div>
+    </div>
+    <div class="progress">
+      <div id="progress-bar"></div>
+      <div id="currentTime"><span class="m">00</span>:<span class="s">00</span></div>
+      <div id="time"></div>
+    </div>
+    <div id="control">
+      <!-- <a id="" href="javascript:;">循环</a> -->
+      <a id="prev" href="javascript:;">上一首</a>
+      <a id="play" href="javascript:;">Play</a>
+      <a id="next" href="javascript:;">下一首</a>
+      <!-- <a id="" href="javascript:;">静音</a> -->
+    </div>
+    <audio id="myaudio"><source src=""></audio>
+  </div>
+  <div id="bg">
+    <div class="blue"></div>
+    <img src="static/bg.png" draggable="false">
+  </div>
 </div>
+<script type="text/javascript" src="api/songlist.js"></script>
 <script type="text/javascript">
+window.onload = function () {
+  var audio = document.getElementById('myaudio'),
+    songlist = sourcelist.result.tracks,
+    songName = document.getElementById('info').querySelector('.title');
+    play = document.getElementById('play'), // 播放按钮
+    prev = document.getElementById('prev'), // 上一首
+    next = document.getElementById('next'), // 下一首
+    time = document.getElementById('time'),
+    songIndex = 0;  //
+
+    console.log(songlist[0]);
+
+  function init() {
+    audio.setAttribute('src', songlist[0].mp3Url);
+    songName.innerHTML = songlist[0].name;
+  }
+  init();
+
+
+  // 播放按钮
+  play.onclick = function () {
+    if (audio.paused) {
+      audio.play();
+      this.innerHTML = 'Pause';
+    } else {
+      audio.pause();
+      this.innerHTML = 'Play';
+    }
+  }
+
+  next.onclick = function () {
+    changeMusic('next');
+  };
+
+  prev.onclick = function () {
+    changeMusic('prev');
+  };
+
+  function changeMusic(direction) {
+    if(direction == 'next'){
+      ++ songIndex > songlist.length - 1 && (songIndex = 0);
+    }else if(direction == 'prev'){
+      -- songIndex < 0 && (songIndex = songlist.length -1);
+    }else{
+      alert("混入了奇怪的东西")
+    }
+
+    var songSrc = songlist[songIndex].mp3Url;
+    audio.setAttribute('src', songSrc);
+    songName.innerHTML = songlist[songIndex].name;
+    // time.innerHTML = audio.duration;
+
+    audio.play();
+    play.innerHTML = 'Pause';
+  }
+
+  setInterval(function updateTime() {
+    var mm = parseInt(audio.currentTime / 60),
+        ss = parseInt(audio.currentTime % 60);
+    currentTime.querySelector('.m').innerHTML = (mm < 10) ? '0'+mm : mm;
+    currentTime.querySelector('.s').innerHTML = (ss < 10) ? '0'+ss : ss;
+  }, 1000);
+
+}
   
 </script>
 </body>
