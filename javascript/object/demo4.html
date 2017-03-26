@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>gg</title>
+  <style type="text/css">
+    .txt{
+      float: left;
+      margin: 100px 50px;
+      height: 500px;
+      width: 300px;
+      border: 1px solid #ccc;
+    }
+    .wrap{
+      float: left;
+      margin: 100px 0;
+    }
+    .wrap button{
+      text-align: center;
+      display: block;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+<textarea id="source" class="txt">
+斯蒂芬sd发
+问
+fds s第三方</textarea>
+<div class="wrap">
+  <button id="inverted">多行反向输出</button>
+  <button onclick='clearText("output")'>清空生成</button>
+  <button onclick='clearText("all")'>清空全部</button>
+</div>
+<textarea id="output" class="txt"></textarea>
+
+<script type="text/javascript">
+  var source = document.getElementById('source'),
+    inverted = document.getElementById('inverted'),
+    output = document.getElementById('output');
+
+  function invertedLine() {
+    var data = source.value.split('\n');
+    var text = '';
+    for (var i = data.length - 1; i >= 0; i--) {
+      text += data[i] + '\n';
+    }
+    output.value = text;
+  }
+
+  function clearText(argument) {
+    if(argument == 'output'){
+      console.log(1);
+      output.value = '';
+    }else{
+      output.value = '';
+      source.value = '';
+    }
+  }
+
+  inverted.addEventListener('click', invertedLine, false);
+</script>
+</body>
+</html>
