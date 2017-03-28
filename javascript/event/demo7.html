@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>鼠标坐标</title>
+</head>
+<body>
+<div id="app">
+  <p>鼠标相对于浏览器窗口可视区域的坐标：（event.clientX, event.clientY）</p>
+  <p>X坐标： <span id="clientX"></span></p>
+  <p>Y坐标： <span id="clientY"></span></p>
+  <p>鼠标相对于文档的坐标：（event.pageX, event.pageY）</p>
+  <p>X坐标： <span id="pageX"></span></p>
+  <p>Y坐标： <span id="pageY"></span></p>
+  <p>鼠标相对于用户显示器屏幕左上角的X,Y坐标：（event.screenX, event.screenY）</p>
+  <p>X坐标： <span id="screenX"></span></p>
+  <p>Y坐标： <span id="screenY"></span></p>
+</div>
+
+<script type="text/javascript">
+  window.onmousemove = function () {
+    mouseMove();
+  }
+
+  function mouseMove() {
+    event = event || window.event;
+    var clientX = event.clientX,
+      clientY = event.clientY,
+      pageX = event.pageX,
+      pageY = event.pageY,
+      screenX = event.screenX,
+      screenY = event.screenY;
+    document.getElementById('clientX').innerHTML = clientX;
+    document.getElementById('clientY').innerHTML = clientY;
+    document.getElementById('pageX').innerHTML = pageX;
+    document.getElementById('pageY').innerHTML = pageY;
+    document.getElementById('screenX').innerHTML = screenX;
+    document.getElementById('screenY').innerHTML = screenY;
+  }
+</script>
+</body>
+</html>
