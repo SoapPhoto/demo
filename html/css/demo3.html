@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>一个动态滑稽</title>
+  <style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  html,body{
+    width: 100%;
+    height: 100%;
+  }
+  body{
+    position: relative;
+  }
+  #main{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    animation: heightCh 1s linear infinite;
+  }
+
+  #huaji{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #f4c569;
+    box-shadow: 3px 8px 20px 2px rgba(0,0,0,0.3), 0 0 20px 10px rgba(238,170,85,0.7) inset, -10px -170px 20px 20px rgba(244,151,58,.15) inset;
+  }
+
+  #huaji .mouth{
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-bottom:20px solid #713405;
+    border-left:1px solid transparent;
+    border-right:1px solid transparent;
+    border-radius:50%/50%; 
+  }
+
+  #huaji .eyes{
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    height: 15%;
+  }
+
+  #huaji .eyes .eye{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+  }
+
+  #huaji .eyes .left{
+    left: 1%;
+  }
+
+  #huaji .eyes .right{
+    left: 56%;
+  }
+
+  #huaji .eyes .eyelid{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  #huaji .eyes .eyeballWrap{
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    top: 40%;
+    left: 10%;
+  }
+
+  #huaji .eyes .eyeball{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #75360a;
+  }
+
+  #huaji .eyes .eyelid .uppereyelid{
+    position: absolute;
+    width: 84%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #huaji .eyes .eyelid .uppereyelid:before{
+    position: absolute;
+    content: '';
+    top: 30%;
+    left: 0%;
+    width: 94%;
+    height: 83%;
+    border: 5px solid #efa234;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  #huaji .eyes .eyelid .lowereyelid{
+    position: absolute;
+    left: 5%;
+    width: 73%;
+    height: 102%;
+    overflow: hidden;
+  }
+
+  #huaji .eyes .eyelid .lowereyelid:before{
+    position: absolute;
+    content: '';
+    top: 80%;
+    left: -14%;
+    width: 120%;
+    height: 65%;
+    border: 5px solid #efa234;
+    border-radius: 50%;
+    background: #f4c569;
+  }
+
+  #huaji .eyebrows{
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    top: 5%;
+  }
+
+  #huaji .eyebrows .eyebrow{
+    width: 90px;
+    height: 90px;
+    border-radius: 49%;
+    border-top: 15px solid #41423c;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+  }
+
+  #huaji .eyebrows .left{
+    position: absolute;
+    left: 14%;
+    transform:rotate(20deg);
+  }
+
+  #huaji .eyebrows .right{
+    position: absolute;
+    left: 68%;
+    transform:rotate(-20deg);
+  }
+
+  #huaji .blushs{
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    height: 20%;
+  }
+
+  #huaji .blushs .blush{
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    border-radius: 50%/50%;
+    background-image: -webkit-linear-gradient(top, #fc8c6d, #f7be76 );
+  }
+
+  #huaji .blushs .left{
+    top: 13%;
+    left: 7%;
+  }
+
+  #huaji .blushs .right{
+    top: 13%;
+    left: 71%;
+  }
+
+  @keyframes heightCh {
+    0%  {
+      height: 500px;
+      transform:rotate(0deg);
+    }
+    25% {
+      height: 600px;
+      transform:rotate(15deg);
+    }
+    50% {
+      height: 500px;
+      transform:rotate(0deg);
+    }
+    75% {
+      height: 600px;
+      transform:rotate(-15deg);
+    }
+    100% {
+      height: 500px;
+      transform:rotate(0deg);
+    }
+  }
+
+  </style>
+</head>
+<body>
+<p>想要做到与原图100%精确，可选择腾讯家的AlloyDesigner，真的是不错的视觉稿工具<a target="_blank" href="http://alloyteam.github.io/AlloyDesigner/">AlloyDesigner</a></p>
+<div id="main">
+  <div id="huaji">
+ 
+    <div class="eyebrows">
+      <div class="eyebrow left"></div>
+      <div class="eyebrow right"></div>
+    </div>
+    <div class="eyes">
+      <div class="eye left">
+        <div class="eyelid">
+          <div class="uppereyelid"></div>
+          <div class="lowereyelid"></div>
+        </div>
+        <div class="eyeballWrap">
+          <div class="eyeball"></div>
+        </div>
+      </div>
+      <div class="eye right">
+        <div class="eyelid">
+          <div class="uppereyelid"></div>
+          <div class="lowereyelid"></div>
+        </div>
+        <div class="eyeballWrap">
+          <div class="eyeball"></div>
+        </div>
+      </div>
+    </div>
+    <div class="blushs">
+      <div class="blush left"></div>
+      <div class="blush right"></div>
+    </div>
+    <div class="mouth"></div>
+    <div class="face"></div>
+  </div>
+</div>
+</body>
+</html>
