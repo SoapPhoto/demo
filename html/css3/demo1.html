@@ -23,6 +23,9 @@
     margin: auto;
     width: 500px;
     height: 500px;
+  }
+
+  .huaji{
     animation: huaji 1.5s linear infinite;
   }
 
@@ -258,5 +261,10 @@
   </div>
 </div>
 <audio autoplay><source src="niba.mp3"></audio>
+<script type="text/javascript">
+  window.onload = function () {
+    document.getElementById('main').className = 'huaji';
+  }
+</script>
 </body>
 </html>
