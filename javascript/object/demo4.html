@@ -1,64 +1,72 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>gg</title>
+  <title>中国大陆人口钟</title>
   <style type="text/css">
-    .txt{
-      float: left;
-      margin: 100px 50px;
-      height: 500px;
-      width: 300px;
-      border: 1px solid #ccc;
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  html,body{
+    width: 100%;
+  }
+  #show {
+    position: absolute;
+    height: 50px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    font-family: Microsoft Yahei Light;
+    font-size: 2em;
+    color: #000;
+  }
+  #tips{
+    position: fixed;
+    width: 100%;
+    height: 4%;
+    top: 48%;
+    left: -100%;
+    background: #20a0ff;
+  }
+
+  .colorGo{
+    animation: colorGo 3898ms linear infinite;
+  }
+
+  @keyframes colorGo{
+    0%{
+      left: -100%;
     }
-    .wrap{
-      float: left;
-      margin: 100px 0;
+    100%{
+      left: 0;
     }
-    .wrap button{
-      text-align: center;
-      display: block;
-      margin: 10px;
-    }
+  }
   </style>
 </head>
 <body>
-<textarea id="source" class="txt">
-斯蒂芬sd发
-问
-fds s第三方</textarea>
-<div class="wrap">
-  <button id="inverted">多行反向输出</button>
-  <button onclick='clearText("output")'>清空生成</button>
-  <button onclick='clearText("all")'>清空全部</button>
-</div>
-<textarea id="output" class="txt"></textarea>
-
-<script type="text/javascript">
-  var source = document.getElementById('source'),
-    inverted = document.getElementById('inverted'),
-    output = document.getElementById('output');
-
-  function invertedLine() {
-    var data = source.value.split('\n');
-    var text = '';
-    for (var i = data.length - 1; i >= 0; i--) {
-      text += data[i] + '\n';
-    }
-    output.value = text;
+  <div id="tips"></div>
+  <div id="show">当前中国大陆总人口：</div>
+  <script>
+  // 数据来源：国家统计局 http://data.stats.gov.cn/swf.htm?m=turnto&id=563
+  var peoplepersecond = 0.256532, //每秒增长人口，根据2016年全年增加人口809万计算
+    startTime = 1483200000000, // 初始化时间 2017-01-01 00:00:00 
+    startPeople = 1382710000, // 初始化人口 2017-01-01 00:00:00 
+    show = document.getElementById('show'),
+    tips = document.getElementById('tips');
+  
+  function getNumber() {
+    var timeStamp = parseInt((new Date().getTime() - startTime)/1000);
+    var income = Math.round(timeStamp * peoplepersecond);
+    var peopleNow = income + startPeople;
+    show.innerHTML = '当前中国大陆总人口：'+ peopleNow;
+    tips.className = 'colorGo';
   }
 
-  function clearText(argument) {
-    if(argument == 'output'){
-      console.log(1);
-      output.value = '';
-    }else{
-      output.value = '';
-      source.value = '';
-    }
-  }
-
-  inverted.addEventListener('click', invertedLine, false);
-</script>
+  var a = setInterval('getNumber()', 100);
+  </script>
 </body>
 </html>
