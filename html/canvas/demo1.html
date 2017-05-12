@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>三角形，正方形，圆形</title>
+  <style type="text/css">
+    #canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script type="text/javascript">
+  window.onload = function () {
+    setCanvas()
+  }
+
+  function setCanvas() {
+    var canvas = document.getElementById('canvas');
+    canvas.width = 1000;
+    canvas.height = 1000;
+    var context = canvas.getContext("2d");
+
+    // 三角形
+    context.beginPath(); // 开启新的路径绘画以及清空已有路径 
+    context.moveTo(100,100); // 线段起点
+    context.lineTo(100,200); // 移动路径
+    context.lineTo(200,200); 
+    context.lineTo(100,100); 
+    context.closePath(); // closePath的意思不是结束路径，而是闭合当前路径使得所有线段连接。它会试图从当前路径的终点连一条路径到起点，让整个路径闭合起来。（这样才能填色吗不是）但是，这并不意味着它之后的路径就是新路径了，要开启新路径，仍然需要使用beginPath，简单说，closePath和beginPath其实没有任何联系的。
+    context.lineWidth = 2; // 设置宽度
+    context.strokeStyle = "#abcedd"; // 设置颜色，默认黑色（颜色值可以为#ccc, rgba(23,33,22,.3), red等）
+    context.fillStyle = "red"; // 填充颜色
+    context.fill(); // 执行填色方法(默认黑色)
+    context.stroke(); // 开始绘制
+
+    // 正方形
+    context.beginPath();
+    context.moveTo(300,100);
+    context.lineTo(400,100); 
+    context.lineTo(400,200); 
+    context.lineTo(300,200); 
+    context.lineTo(300,100); 
+    context.closePath();
+    context.strokeStyle = "red";
+    context.fillStyle = "green";
+    context.fill();
+    context.stroke();
+
+    // 圆形
+    // context.arc(圆心坐标X,圆心坐标Y,半径,弧线起点,弧线结束,顺时针(false))
+    context.beginPath();
+    context.lineWidth = 3;
+    context.strokeStyle = "blue";
+    context.arc(600,150,50,0, 2*Math.PI);
+    context.stroke();
+
+  }
+</script>
+</body>
+</html>
