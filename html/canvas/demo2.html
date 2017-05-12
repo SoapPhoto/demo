@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>四处移动的小球</title>
+  <style type="text/css">
+    #canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<button onclick="restart()">重新开始</button>
+<script type="text/javascript">
+  var ball = {
+    x: 300,
+    y: 200,
+    r: 20,
+    g: 2,
+    vx: -20,
+    vy: -10,
+    ram: 1
+  }
+  window.onload = function () {
+    var canvas = document.getElementById('canvas');
+    canvas.width = 700;
+    canvas.height = 700;
+    var context = canvas.getContext("2d");
+
+    setInterval(function () {
+      setCanvas(context);
+      update();
+    }, 20)
+  }
+
+  function restart() {
+    ball.ram = parseInt(Math.random()*10); // 0 - 9
+    ball.x = 100 + ball.ram*10;
+    ball.y = 100 + ball.ram*10;
+    ball.vx = -10 + ball.ram*10;
+    ball.vy = -10 + ball.ram*10;
+    console.log(ball)
+  }
+
+  function setCanvas(ctx) {
+    ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height); // 清空一个矩形
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.r, 0, 2*Math.PI);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  function update() {
+    ball.x += ball.vx;
+    ball.y += ball.vy;
+
+    if(ball.y > canvas.height - ball.r){
+      ball.y = canvas.height - ball.r;
+      ball.vy = -ball.vy
+    }
+
+    if(ball.y <0){
+        ball.y = 0;
+        ball.vy = -ball.vy
+    }
+
+    if(ball.x<=ball.r){
+        ball.x=ball.r;
+        ball.vx=-ball.vx*(ball.ram/10);
+    }
+
+    if(ball.x>=canvas.width-ball.r){
+        ball.x=canvas.width-ball.r;
+        ball.vx=-ball.vx*(ball.ram/10);
+    }
+  }
+</script>
+</body>
+</html>
