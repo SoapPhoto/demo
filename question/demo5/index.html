@@ -16,11 +16,18 @@
     width: 100%;
   }
 
+  body {
+    overflow: hidden;
+  }
+
   #app {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    background-image: url('./ha.jpg');
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    height: 120%;
+    width: 120%;
+    background: url('./z.jpg') center no-repeat;
+    background-size: cover;
   }
 
   .shake {
@@ -195,7 +202,7 @@
 <body>
   <div id="app">
     <div id="box">
-      <button id="btn">请千万不要点我</button>
+      <button id="btn">这是一个按钮</button>
     </div>
   </div>
   <script type="text/javascript">
