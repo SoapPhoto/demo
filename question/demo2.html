@@ -5,8 +5,17 @@
   <title></title>
 </head>
 <body>
-<p>输出这周开始到20周以后的日期（别问我为什么会写这个= =）</p>
-<div id="t"></div>
+<p>输出这周开始到20周以后的日期</p>
+<ul id="t"></ul>
+<ul id="b">
+  <li>周一</li>
+  <li>周二</li>
+  <li>周三</li>
+  <li>周四</li>
+  <li>周五</li>
+  <li>周六</li>
+  <li>周日</li>
+</ul>
 <script type="text/javascript">
   var startDate = new Date();
   var weekDay = startDate.getDay();
@@ -25,11 +34,10 @@
 
   var con = "";
 
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 20; i++) {
     weekMonday[i] = startDate;
     weekSunday[i] = startDate + daystamp*6;
     startDate = startDate + daystamp*7;
-    // console.log(dateFormate(weekMonday[i]) +" - "+dateFormate(weekSunday[i]) );
     con+= '<li>'+dateFormate(weekMonday[i]) +" - "+dateFormate(weekSunday[i])+'</li>';
   }
     console.log(con);
