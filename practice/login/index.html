@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>只是一个登录页面</title>
+  <style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+  }
+
+  .index {
+    width: 100%;
+    height: 100%;
+  }
+
+  .index .background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #2f2f2f;
+    transition: .3s all;
+    animation: fadedown 1s cubic-bezier(.19, 1, .22, 1);
+  }
+
+  .index .background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, .3));
+  }
+
+  .main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    perspective: 800px;
+    -webkit-perspective: 800px;
+  }
+
+  .main .base-panel {
+    position: absolute;
+    width: 30%;
+    height: 40%;
+    top: 25%;
+    left: 35%;
+  }
+
+  .main .base-panel .btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    margin-top: 50px;
+    padding: 15px 40px;
+    cursor: pointer;
+    border-radius: 25px;
+    outline: none;
+    transition: .3s all;
+  }
+
+  .main .base-panel .btn:hover {
+    background: rgba(255, 255, 255, .3);
+    border-radius: 5px;
+  }
+
+  .main .flop {
+    transition: .8s ease-in-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  .main .start-panel-rotate {
+    transform: rotateY(-180deg)!important;
+    z-index: 1!important;
+  }
+
+  .main .login-panel-rotate {
+    transform: rotateY(0)!important;
+    z-index: 2!important;
+  }
+
+  .main .start {
+    z-index: 102;
+    -webkit-transform: rotateY(0);
+    text-align: center;
+    padding: 100px 0;
+  }
+
+  .main .start h1 {
+    display: block;
+    color: #fff;
+    font-size: 2.5em;
+  }
+
+  .main .login {
+    z-index: 101;
+    -webkit-transform: rotateY(180deg);
+    text-align: center;
+    padding: 100px 0;
+  }
+
+  .main .login .label-wrap {
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .main .login .label-wrap .ipt {
+    height: 30px;
+    line-height: 30px;
+    width: 250px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: none;
+    outline: none;
+    padding: 15px 20px;
+    margin-right: 10px;
+    color: #fff;
+    font-family: '微软雅黑';
+    font-size: 16px;
+    cursor: text;
+    transition: all .2s ease;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="index">
+    <div class="background"></div>
+    <div class="main">
+      <div :class="['start', 'base-panel', 'flop', {'start-panel-rotate': flopState}]">
+        <h1>开启你的100天计划</h1>
+        <button class="btn" @click="flop">开始</button>
+      </div>
+      <div :class="['login', 'base-panel', 'flop', {'login-panel-rotate': flopState}]">
+        <div class="label-wrap">
+          <input class="ipt" type="text" name="username" placeholder="用户名">
+        </div>
+        <div class="label-wrap">
+          <input class="ipt" type="password" name="password" placeholder="密码">
+        </div>
+        <div class="label-wrap btn-wrap">
+          <button class="btn">登录</button>
+          <button class="btn" @click="flop">取消</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+  <script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        flopState: false
+      }
+    },
+    watch: {
+      flopState(state) {
+        let mainPanel = document.querySelector('.start'),
+          backPanel = document.querySelector('.login')
+      }
+    },
+    created() {
+      this.$nextTick(() => {
+        setInterval(() => {
+          this.showTime()
+        }, 10)
+      })
+    },
+    methods: {
+      showTime() {
+        let time = '#' + (new Date()).toTimeString().match(/\d{2}:\d{2}:\d{2}/)[0].replace(/:/g, '')
+        document.querySelector('.background').style.backgroundColor = time
+      },
+      flop() {
+        this.flopState = !this.flopState
+      }
+    }
+  })
+  </script>
+</body>
+
+</html>
