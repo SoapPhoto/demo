@@ -21,7 +21,6 @@
 </head>
 <body>
 <h1>统计百度前端学院的群成员的城市分布TOP20</h1>
-<p>思路： 扒下来群成员的备注（备注基本都是[城市名]-[昵称]），然后序列化成数组，处理成{city:count}，然后在echart上输出，就OK啦</p>
 <div id="content"></div>
 <div id="main"></div>
 <script type="text/javascript">
@@ -34,7 +33,6 @@ var citys = [];
 for(var i=arrList.length; i--;){
     citys[arrList[i]] = (citys[arrList[i]] || 0) + 1;//累计次数
 }
-// console.log(citys);
 
 
 // 将结果拼接成对象数组
@@ -44,7 +42,6 @@ for(var k in citys){
   i++;
   cityObj[i] = {'name':k, 'value':citys[k]};
 }
-// console.log(cityObj);
 
 // 进行排序
 var by = function(name){
