@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>伪3D视角</title>
+  <style type="text/css">
+    body {
+      background: url(./bg.jpg) no-repeat center;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    #app {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #content {
+      text-align: center;
+    }
+    #content h1 {
+      color: #fff;
+      font-size: 5rem;
+      text-shadow: 0 1px 0 #ccc,
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaa,
+        0 6px 1px rgba(0,0,0,.1),
+        0 0 5px rgba(0,0,0,.1),
+        0 1px 3px rgba(0,0,0,.3),
+        0 3px 5px rgba(0,0,0,.2),
+        0 5px 10px rgba(0,0,0,.25),
+        0 10px 10px rgba(0,0,0,.2),
+        0 20px 20px rgba(0,0,0,.15);
+    }
+    #content img {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div id="content">
+      <img src="./digua.jpg" alt="digua">
+      <h1>digua</h1>
+    </div>
+  </div>
+  <script type="text/javascript">
+    const content = document.getElementById('content')
+    document.onmousemove = function (e) {
+      var x = e.clientX - document.body.offsetWidth / 2
+      var y = e.clientY - document.body.offsetHeight / 2
+      setP(x / 30, y / 30)
+    }
+    const setP = function (x, y) {
+      content.style.cssText = "transform: rotateX(" + x + "deg) rotateY(" + y + "deg);"
+    }
+  </script>
+</body>
+
+</html>
