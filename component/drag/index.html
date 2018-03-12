@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>拖拽元素</title>
+  <style type="text/css">
+    #target {
+      width: 200px;
+      height: 200px;
+      background: #ccc;
+    }
+    #target .head {
+      height: 50px;
+      width: 100%;
+      background: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="target">
+    <div class="head"></div>
+  </div>
+
+<script type="module">
+import Drag from './drag.js';
+
+let options = {
+  targetEl: document.getElementById('target'), // 被移动元素
+  moveEl: document.querySelector('#target .head'), // 可控制元素
+  overflow: false, // 是否可跨过边界
+  cursor: 'move', // 可移动区域的鼠标焦点图标样式
+  onlyX: false, // 水平模式
+  onlyY: false // 垂直模式
+}
+let el1 = new Drag(options);
+</script>
+</body>
+</html>
