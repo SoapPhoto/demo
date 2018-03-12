@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+img::selection,
+input::selection,
+p::selection,
+span::selection {
+  background: rgba(0, 0, 0, 0);
+  user-select: none;
+}
+
+#bg {
+  position: fixed;
+  z-index: -99;
+  width: 100%;
+  height: 100%;
+  background: url(../images/bg.jpg) no-repeat;
+  background-size: cover;
+}
+
+#content {
+  display: flex;
+  flex-flow: column;
+}
+
+#content .item {
+  display: inline-table;
+  width: 100px;
+  height: 100px;
+  margin: 17px 20px;
+  padding: 5px 15px;
+  box-sizing: border-box;
+}
+
+#content .item:hover {
+  background: rgba(235, 245, 252, 0.1);
+  padding: 4px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-sizing: border-box;
+}
+
+#content .item img {
+  max-height: 65px;
+  max-width: 65px;
+}
+
+#content .item p {
+  color: #fff;
+  font-family: Microsoft Yahei;
+  text-align: center;
+  text-shadow: 2px 3px 2px #000;
+  cursor: default;
+}
+
+
+#taskbar {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#taskbar #start {
+  position: absolute;
+  top: 0;
+  height: 50px;
+  width: 60px;
+}
+
+#taskbar #start:hover {
+  background: #2e2b2f;
+}
+
+#taskbar #start:hover .icon-start {
+  margin: 17px 20px;
+  background: url(../images/windows_hover.svg) no-repeat;
+  height: 16px;
+}
+
+#taskbar #start .icon-start {
+  margin: 17px 20px;
+  background: url(../images/windows.svg) no-repeat;
+  height: 16px;
+}

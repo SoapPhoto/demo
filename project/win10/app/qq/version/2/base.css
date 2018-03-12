@@ -1,0 +1,103 @@
+*{ margin: 0; padding: 0;}
+body{ font-size: 15px; font-family: Microsoft Yahei; }
+
+/*禁止以下拖拽*/
+img::selection{background: rgba(0,0,0,0); user-select: none;}
+input::selection{background: rgba(0,0,0,0); user-select: none;}
+p::selection{background: rgba(0,0,0,0); user-select: none;}
+span::selection{background: rgba(0,0,0,0); user-select: none;}
+
+#drag-toggle{position: absolute; width: 550px; height: 430px; top: 20%; left: 20%; border-radius: 3px; perspective: 800px; -webkit-perspective: 800px;}
+.common-panel{position: absolute; width: 533px; height: 410px; top: 5px; left: 5px;  background-color: #ebf2f9; border-radius: 3px; cursor: default; box-shadow: 0px 0px 10px 1px #aaa;}
+
+.main-panel-rotate{ -webkit-transform:rotateY(-180deg)!important; z-index: 1!important;}
+.back-panel-rotate{ -webkit-transform:rotateY(0)!important; z-index: 2!important;}
+
+.flop{-webkit-transition:.8s ease-in-out; -webkit-transform-style: preserve-3d; -webkit-backface-visibility: hidden;}
+
+.main-panel{ z-index: 2; -webkit-transform:rotateY(0); }
+.back-panel{ z-index: 1; -webkit-transform:rotateY(180deg);  }
+
+.main-panel .t-panel{position: relative; z-index: 11; width:533px; height: 225px; overflow: hidden; border-radius: 3px;}
+.main-panel .t-panel #anit-out{display: -webkit-box; width: 100%; height: 225px; border-radius: 3px;}
+.main-panel .t-panel .execute{position: absolute; top:0; right: 0;}
+.main-panel .t-panel .execute .item{float: right;}
+.main-panel .t-panel .execute .item img{transition: all 0.3s; width: 36px; height: 30px; padding-bottom: 4px;}
+.main-panel .t-panel .execute .item img:hover{background-color: rgba(255,255,255,0.2); width: 36px; height: 30px;}
+.main-panel .t-panel .execute .close img:hover{background-color: #d44027!important; width: 36px; height: 30px;}
+.main-panel .t-panel .title{position: absolute;}
+.main-panel .t-panel .title img{width: 60px; height: 70px; margin: 80px 0px 0px 180px; float: left;}
+.main-panel .t-panel .title p{float: left; margin: 85px 15px 75px; color: #f6f6f6; font-weight: 100; text-shadow: 3px 3px 2px #666;}
+.main-panel .t-panel .title p .qq{display: inline-block; font-size: 55px; font-weight: 100; font-family: "gotham"; transform: scale(0.9,1);}
+.main-panel .t-panel .title p .lite{font-size: 20px; }
+
+.main-panel .b-panel{position: relative; z-index: 11; height: 170px; width: 533px; padding-top: 15px; background: #ebf2f9;}
+.main-panel .b-panel .avatar-panel{position: relative; float: left; margin-left: 50px;}
+.main-panel .b-panel .avatar-panel img{width: 100px; height: 100px; background: #fff; border-radius: 3px;} 
+.main-panel .b-panel .avatar-panel #state{position: absolute; right: -1px; bottom: 0;}
+.main-panel .b-panel .avatar-panel #state .state-panel img{height: 19px; width: 19px; background-color: rgba(0,0,0,0); }
+.main-panel .b-panel .avatar-panel #state .state-panel img:hover{ position: absolute; left:-20px; top: -24px; height: 19px; width: 19px; border: 1px solid #b2b2b2; }
+
+.main-panel .b-panel .login-panel{float: left; margin-left: 13px;}
+.main-panel .b-panel .login-panel .input-panel .ipt{height: 24px; width: 225px; border: 1px solid #ccc;}
+/*.main-panel .b-panel .login-panel .input-panel .ipt:hover{outline: 1px solid #1583dd; }*/
+.main-panel .b-panel .login-panel .input-panel input::-webkit-input-placeholder { font-size:14px; line-height: 14px; color:#7f7f7f; font-family: Microsoft Yahei;}
+.main-panel .b-panel .login-panel .input-panel .qq{position: relative;}
+.main-panel .b-panel .login-panel .input-panel .pwd{position: relative;}
+.main-panel .b-panel .login-panel .input-panel .qq input{font-size: 18px; padding: 6px; border-bottom: 1px solid #ccc; border-top-left-radius: 5px; border-top-right-radius: 5px;}
+.main-panel .b-panel .login-panel .input-panel .pwd input{font-size: 18px; padding: 6px; border-top-style: none; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;}
+.main-panel .b-panel .login-panel .input-panel .qq img{position: absolute; right: 0; top: 3px; width: 33px; height: 33px;}
+.main-panel .b-panel .login-panel .input-panel .pwd img{position: absolute; right: 10px; top: 8px; width: 19px; height: 19px;}
+.main-panel .b-panel .login-panel .checkbox-panel{ display:flex; margin: 10px 0;}
+.main-panel .b-panel .login-panel .checkbox-panel span{color: #757575;}
+.main-panel .b-panel .login-panel .checkbox-panel .check-item1{float: left; margin-right: 78px;}
+.main-panel .b-panel .login-panel .btn-panel .btn{height: 37px; width: 240px; transition:all 0.5s; background: #09a3dc; color: #fff; font-family: Microsoft Yahei; border: none; border-radius: 5px; font-size: 15px;}
+.main-panel .b-panel .login-panel .btn-panel .btn:hover{background: #3cc3f5;}
+.main-panel .b-panel .service-panel{float: right; }
+.main-panel .b-panel .service-panel a{display: flex; margin-right: 55px; color: #09a3dc; text-decoration: none; line-height: 2.3; }
+.main-panel .b-panel .service-panel a:hover{color: #3cc3f5;}
+.main-panel .b-panel #switch-single{position: absolute; left: 5px; bottom: 5px; }
+.main-panel .b-panel #switch-single img{width: 30px; height: 30px; }
+.main-panel .b-panel #qr-code{position: absolute; right: 5px; bottom: 5px;}
+.main-panel .b-panel #qr-code img{transition: all 0.5s; width: 30px; height: 30px;}
+
+.back-panel img{height: 200px; width: 200px; border-radius: 50%; margin: 100px 160px;}
+
+input[type=checkbox]{ 
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 2px solid #cbcbcb;
+  border-radius: 1px;
+  margin-right: 5px;
+}
+
+input[type=checkbox]:hover {
+  border: 2px solid #3cc3f5;
+}
+
+input[type=checkbox]:checked{
+  background: #3cc3f5;
+  -webkit-appearance: ;
+}
+
+/*
+input[type=checkbox]:active,
+input[type=radio]:active {
+border-color: #c6c6c6;
+background: #ebebeb;
+}
+
+input[type=checkbox]:checked::after {
+  display: block;
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  left: -5px
+}
+
+input[type=checkbox]:focus {
+outline: none;
+border-color:#4d90fe;
+}*/

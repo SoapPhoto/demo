@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ch-cnm-Hans">
+<head>
+  <meta charset="UTF-8">
+  <title>QQ网页版</title>
+  <link rel="stylesheet" href="base.css">
+  <link href='./font.css' rel='stylesheet' type='text/css' />
+  <script type="text/javascript" src="./script/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="./script/drag.js"></script>
+  <script type="text/javascript" src="./script/texiao.js"></script>
+</head>
+<body>
+<div id="drag-toggle">
+  <div class="main-panel common-panel flop">
+    <div class="t-panel">
+      <div class="execute">
+        <div id="btn-close" class="item close"><img title="关闭" src="./images/btn_close.png"></div>
+        <div id="btn-min" class="item"><img title="最小化" src="./images/btn_min.png"></div>
+        <div id="btn-set" class="item"><img title="设置" src="./images/btn_set.png"></div>
+      </div>
+      <div class="title">
+        <img src="./images/qq.png" draggable="false"><p><span class="qq">QQ</span></p>
+      </div>
+      <div id="anit-out"></div>
+    </div>
+    <div class="b-panel">
+      <div class="avatar-panel">
+        <img src="./images/logo.png" draggable="false" alt="avatar">
+        <div id="state">
+          <div class="state-panel"><img title="在线状态：我在线上" src="./images/state_online.png"></div>
+          <div id="state-select"></div>
+        </div>
+      </div>
+      <div class="login-panel">
+        <form>
+          <div class="input-panel">
+            <div class="qq">  
+              <input class="ipt" type="text" name="" placeholder="QQ号码/手机/邮箱" draggable="false">
+              <img src="./images/select_account.png">
+            </div>
+            <div class="pwd">
+              <input class="ipt" type="password" name="" placeholder="密码" draggable="false">
+              <img src="./images/keyboard.png">
+            </div>
+          </div>
+          <div class="checkbox-panel">
+            <div class="check-item1">
+              <input type="checkbox" name="rememberpwd" draggable="false"><span>记住密码</span>
+            </div>
+            <div class="check-item2">
+              <input type="checkbox" name="autologin" draggable="false"><span>自动登录</span>              
+            </div>
+          </div>
+          <div class="btn-panel">
+            <button class="btn" draggable="false">登&nbsp;&nbsp;&nbsp;录</button>
+          </div>
+        </form>
+      </div>
+      <div class="service-panel">
+        <a href="https://ssl.zc.qq.com/chs/index.html" target="_blank" draggable="false">注册账号</a>
+        <a href="https://ssl.ptlogin2.qq.com/forget_pwd?pt_clientver=5457&pt_src=1&ptlang=2052&aquin=" target="_blank" draggable="false">找回密码</a>
+      </div>
+      <div id="switch-single">
+        <img title="多帐号登录" src="./images/switch_single.png">
+      </div>
+      <div id="qr-code">
+        <img title="二维码登录" src="./images/qrcode.png">
+      </div>
+    </div>
+  </div>
+  <div class="back-panel common-panel flop">
+    <img src="./images/head_1.png">
+  </div>
+</div>
+</body>
+</html>
